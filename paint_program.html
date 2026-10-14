@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Paint Program - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #050316;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover { color: #ff8c42; }
+    .navbar-link.current { color: #ff8c42; font-weight: 700; }
+
+    .back-link-top-wrapper {
+      position: sticky;
+      top: 10px;
+      z-index: 3;
+    }
+
+    .back-link-top {
+      display: inline-block;
+      margin: 12px 0 0 5%;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #57d5d9;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-link-bottom {
+      display: block;
+      width: fit-content;
+      margin: 28px auto;
+      padding: 10px 18px;
+      border: 1px solid #57d5d9;
+      border-radius: 6px;
+      color: #57d5d9;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-link-bottom:hover { color: #ff8c42; border-color: #ff8c42; }
+
+    .paint-app {
+      max-width: 1000px;
+      margin: 26px auto 64px;
+      padding: 0 20px;
+    }
+
+    .paint-app h1 {
+      margin-bottom: 10px;
+      color: #57d5d9;
+      text-align: center;
+    }
+
+    .paint-tools {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px 0 14px;
+    }
+
+    .paint-tools button {
+      margin: 0;
+      padding: 0 12px;
+      border-color: #57d5d9;
+      background-color: #050316;
+      color: #57d5d9;
+    }
+
+    .paint-tools button[aria-pressed="true"] {
+      background-color: #57d5d9;
+      color: #050316;
+    }
+
+    .paint-tools button[data-action] {
+      border-color: #ff8c42;
+      color: #ff8c42;
+    }
+
+    .paint-stage {
+      overflow: hidden;
+      border-radius: 6px;
+      background-color: #fff;
+      touch-action: none;
+    }
+
+    .paint-stage canvas {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      cursor: crosshair;
+    }
+
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble,
+    .navbar .bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .paint-app { padding: 0 12px; }
+      .paint-tools { gap: 6px; }
+      .paint-tools button { padding: 0 8px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<div class="back-link-top-wrapper">
+  <a class="back-link-top" href="p1.html">Back to Portfolio</a>
+</div>
+
+<main class="paint-app">
+  <h1>Paint Program</h1>
+  <div class="paint-tools" role="toolbar" aria-label="Paint controls">
+    <button type="button" data-brush="1" aria-pressed="true">Black</button>
+    <button type="button" data-brush="2" aria-pressed="false">Red</button>
+    <button type="button" data-brush="3" aria-pressed="false">Teal</button>
+    <button type="button" data-brush="4" aria-pressed="false">Wash</button>
+    <button type="button" data-brush="5" aria-pressed="false">Eraser</button>
+    <button type="button" data-brush="6" aria-pressed="false">Green</button>
+    <button type="button" data-brush="7" aria-pressed="false">Glitter</button>
+    <button type="button" data-brush="8" aria-pressed="false">Flower</button>
+    <button type="button" data-brush="9" aria-pressed="false">Sticks</button>
+    <button type="button" data-action="clear">Clear</button>
+    <button type="button" data-action="save">Save</button>
+  </div>
+  <div class="paint-stage" id="paint-stage"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+<script>
+let selectedBrush = '1';
+let bgc;
+let gkcount;
+let spiralAngle = 0;
+let paintCanvas;
+
+function setup() {
+  paintCanvas = createCanvas(1000, 700);
+  paintCanvas.parent('paint-stage');
+  paintCanvas.elt.setAttribute('aria-label', 'Interactive painting canvas');
+  background(255);
+  smooth();
+  bgc = color(255);
+  gkcount = 20;
+}
+
+function draw() {
+  if (mouseIsPressed && mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+    drawChoice();
+  }
+}
+
+function drawChoice() {
+  switch (selectedBrush) {
+    case '1': drawline(color(0), mouseX, mouseY, pmouseX, pmouseY); break;
+    case '2': drawline(color(255, 0, 0), mouseX, mouseY, pmouseX, pmouseY); break;
+    case '3': drawline(color(20, 190, 155), mouseX, mouseY, pmouseX, pmouseY); break;
+    case '4': drawFatLine(color(0, 255, 255, 10), mouseX, mouseY, pmouseX, pmouseY); break;
+    case '5': eraser(bgc, mouseX, mouseY, 25); break;
+    case '6':
+      steveRanBrush(gkcount, mouseX, mouseY, pmouseX, pmouseY);
+      gkcount = gkcount > 50 ? 1 : gkcount + 0.5;
+      break;
+    case '7': mlglitter(color(250, 200, 60, 90), mouseX, mouseY); break;
+    case '8': mlflower(color(100, 100, 200, 120), mouseX, mouseY, 25, 8); break;
+    case '9': mlsticks(color(20, 190, 155), 8, mouseX, mouseY, pmouseX, pmouseY); break;
+  }
+}
+
+function drawline(brushColor, x, y, previousX, previousY) {
+  strokeWeight(10);
+  stroke(brushColor);
+  line(x, y, previousX, previousY);
+}
+
+function drawFatLine(brushColor, x, y, previousX, previousY) {
+  strokeWeight(100);
+  stroke(brushColor);
+  line(x, y, previousX, previousY);
+}
+
+function steveRanBrush(weight, x, y, previousX, previousY) {
+  strokeWeight(weight);
+  stroke(0, weight * 3, 0);
+  line(x, y, previousX, previousY);
+}
+
+function mlglitter(brushColor, x, y) {
+  noStroke();
+  for (let i = 0; i < 15; i++) {
+    fill(brushColor);
+    ellipse(x + random(-20, 20), y + random(-20, 20), random(1, 5), random(1, 3));
+  }
+}
+
+function eraser(brushColor, x, y, size) {
+  fill(brushColor);
+  stroke(brushColor);
+  ellipse(x, y, size, size);
+}
+
+function mlflower(brushColor, x, y, radius, points) {
+  push();
+  translate(x, y);
+  stroke(brushColor);
+  strokeWeight(2);
+  noFill();
+  for (let i = 0; i < points; i++) {
+    const angle = spiralAngle + i * TWO_PI / points;
+    line(0, 0, cos(angle) * radius, sin(angle) * radius);
+  }
+  spiralAngle += 0.1;
+  pop();
+}
+
+function mlsticks(brushColor, weight, x, y, previousX, previousY) {
+  stroke(brushColor);
+  strokeWeight(weight);
+  noFill();
+  const offset = sin(frameCount * 0.1) * 30;
+  line(x + offset, y, previousX - offset, previousY);
+}
+
+function keyPressed() {
+  if (/^[1-9]$/.test(key)) {
+    selectBrush(key);
+  } else if (key === 'x' || key === 'X') {
+    clearCanvas();
+  } else if (key === 'p' || key === 'P') {
+    saveArtwork();
+  }
+}
+
+function selectBrush(brush) {
+  selectedBrush = brush;
+  document.querySelectorAll('[data-brush]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.brush === brush));
+  });
+}
+
+function clearCanvas() {
+  background(255);
+}
+
+function saveArtwork() {
+  saveCanvas(paintCanvas, 'paint-program', 'png');
+}
+
+document.querySelectorAll('[data-brush]').forEach((button) => {
+  button.addEventListener('click', () => selectBrush(button.dataset.brush));
+});
+
+document.querySelector('[data-action="clear"]').addEventListener('click', clearCanvas);
+document.querySelector('[data-action="save"]').addEventListener('click', saveArtwork);
+
+window.addEventListener('load', () => {
+  const navbar = document.querySelector('.navbar');
+  for (let i = 0; i < 20; i++) {
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+    bubble.style.left = Math.random() * 100 + '%';
+    bubble.style.width = (6 + Math.random() * 10) + 'px';
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDuration = (5 + Math.random() * 6) + 's';
+    bubble.style.opacity = 0.4 + Math.random() * 0.3;
+    navbar.appendChild(bubble);
+  }
+
+  for (const selector of ['.bubble-column.left', '.bubble-column.right']) {
+    const column = document.querySelector(selector);
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement('span');
+      bubble.className = 'bubble-column-bubble';
+      bubble.style.left = Math.random() * 30 + 'px';
+      bubble.style.width = (6 + Math.random() * 12) + 'px';
+      bubble.style.height = bubble.style.width;
+      bubble.style.animationDuration = (6 + Math.random() * 10) + 's';
+      bubble.style.opacity = 0.3 + Math.random() * 0.3;
+      bubble.style.animationDelay = Math.random() * 10 + 's';
+      column.appendChild(bubble);
+    }
+  }
+});
+</script>
+
+<a class="back-link-bottom" href="project1_paint.html">Back to Project</a>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- ✅ FAVICON -->
+  <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #050316;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: #57d5d9;
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link.current {
+      color: #ff8c42;
+      font-weight: bold;
+    }
+
+    .navbar-link:hover {
+      color: #ff8c42;
+    }
+
+    /* Sections */
+    .section {
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(87, 213, 217, 0.2);
+      scroll-margin-top: 20px;
+    }
+
+    h5 {
+      color: #57d5d9;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 1.8em;
+      margin-bottom: 22px;
+    }
+
+    .portfolio-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(87, 213, 217, 0.2);
+    }
+
+    .portfolio-jump a {
+      padding: 6px 0;
+      border-bottom: 1px solid transparent;
+      color: #57d5d9;
+      font-size: 0.95em;
+      text-decoration: none;
+    }
+
+    .portfolio-jump a:hover,
+    .portfolio-jump a:focus-visible {
+      border-color: #ff8c42;
+      color: #ff8c42;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 20px;
+    }
+
+    .portfolio-item {
+      min-width: 0;
+    }
+
+    .portfolio-item > a {
+      display: block;
+      height: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background-color: rgba(5, 3, 22, 0.24);
+      border-radius: 4px;
+      transition: transform 0.25s;
+    }
+
+    .portfolio-item a:hover img,
+    .portfolio-item a:focus-visible img {
+      transform: scale(1.02);
+    }
+
+    .portfolio-item h6 {
+      min-height: 2.4em;
+      margin: 12px 0 0;
+      color: #e6e6e6;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 1.1em;
+    }
+
+    /* 🔥 SIDE BUBBLES */
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Navbar bubbles */
+    .navbar .bubble {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">Minh-khang Le</div>
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 🔥 SIDE BUBBLES -->
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<div class="container">
+
+  <nav class="portfolio-jump" aria-label="Portfolio sections">
+    <a href="#two-d-art">2D Digital Art</a>
+    <a href="#three-d-art">3D Art</a>
+    <a href="#video-art">Video Art</a>
+    <a href="#coding-projects">Coding Projects</a>
+    <a href="#other-classes">Other Classes</a>
+  </nav>
+
+  <!-- 2D Art -->
+  <div class="section" id="two-d-art">
+    <h5>2D Digital Art</h5>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <a href="remix.html">
+          <img src="alex_vede_remix.jpg" alt="Art Remix">
+          <h6>Art Remix</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="emblem.html">
+          <img src="project 2 emblem jpg.jpg" alt="Emblem Design">
+          <h6>Emblem Design</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="patterns.html">
+          <img src="Pattern-1-05.jpg" alt="Patterns">
+          <h6>Patterns</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="png+jpeg.html">
+          <img src="3 bird.jpg" alt="PNG and JPEG creation featuring three birds">
+          <h6>PNG+JPEG Creation</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="tagline.html">
+          <img src="logo ML.jpg" alt="Tagline and mockup designs">
+          <h6>Tagline + Mockups</h6>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3D Art -->
+  <div class="section" id="three-d-art">
+    <h5>3D Art</h5>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <a href="coin.html">
+          <img src="top.PNG" alt="Two rendered gold Kraken coins">
+          <h6>Blender Coin</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="coin_copy.html">
+          <img src="chibi.png" alt="Chibi character illustration">
+          <h6>Blender Chibi</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="chibi2.html">
+          <img src="orchid2.png" alt="Blender Orchid">
+          <h6>Blender Orchid</h6>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Video Art -->
+  <div class="section" id="video-art">
+    <h5>Video Art</h5>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <a href="audio.html">
+          <img src="proj2_thumb.JPG" alt="Audio Visual project thumbnail">
+          <h6>Audio Visual</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="montage.html">
+          <img src="proj_1_thumb.jpg" alt="Montage project thumbnail">
+          <h6>Montage</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="movement.html">
+          <img src="proj4_thumb.jpg" alt="Movement project thumbnail">
+          <h6>Movement</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="storytelling.html">
+          <img src="proj 5 thumb.jpg" alt="Storytelling project thumbnail">
+          <h6>Storytelling</h6>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Coding Projects -->
+  <div class="section" id="coding-projects">
+    <h5>Coding Projects</h5>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <a href="project4_angler.html">
+          <img src="proj4_thumb.png" alt="Alien Angler game title screen">
+          <h6>Alien Angler Game</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="project1_paint.html">
+          <img src="paint_test_tile.png" alt="Paintings made with custom digital brushes">
+          <h6>Paint Program</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="project2_timelapse.html">
+          <img src="creatures_thumb.jpg" alt="Underwater timelapse illustration">
+          <h6>Underwater Timelapse</h6>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Other Classes -->
+  <div class="section" id="other-classes">
+    <h5>Other Classes</h5>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <a href="13.html">
+          <img src="IMG_2812.JPG" alt="Art 13 project artwork">
+          <h6>Art 13</h6>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="24.html">
+          <img src="coal_cloth.JPG" alt="Art 24 charcoal project">
+          <h6>Art 24</h6>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- 🔥 BUBBLE SCRIPT -->
+<script>
+window.addEventListener('load', () => {
+
+  // Navbar bubbles
+  const navbar = document.querySelector('.navbar');
+  for(let i=0; i<20; i++){
+    const b = document.createElement('span');
+    b.className = 'bubble';
+    b.style.left = Math.random()*100 + '%';
+    b.style.width = (6 + Math.random()*10) + 'px';
+    b.style.height = b.style.width;
+    b.style.animationDuration = (5 + Math.random()*6) + 's';
+    b.style.opacity = 0.4 + Math.random()*0.3;
+    navbar.appendChild(b);
+  }
+
+  // Side bubbles
+  function createSideBubbles(selector, count){
+    const col = document.querySelector(selector);
+    for(let i=0;i<count;i++){
+      const b = document.createElement('span');
+      b.className = 'bubble-column-bubble';
+      b.style.left = Math.random()*30 + 'px';
+      b.style.width = (6 + Math.random()*12) + 'px';
+      b.style.height = b.style.width;
+      b.style.animationDuration = (6 + Math.random()*10) + 's';
+      b.style.opacity = 0.3 + Math.random()*0.3;
+      b.style.animationDelay = Math.random()*10 + 's';
+      col.appendChild(b);
+    }
+  }
+
+  createSideBubbles('.bubble-column.left', 30);
+  createSideBubbles('.bubble-column.right', 30);
+
+});
+</script>
+
+</body>
+</html>
