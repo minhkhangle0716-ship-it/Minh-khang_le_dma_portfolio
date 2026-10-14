@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home - Minh-khang Le</title>
+  <meta name="description" content="Digital Art Portfolio">
+  <meta name="author" content="Minh-khang Le">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="water_favicon.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  
+  <style>
+    
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #050316;
+      border-bottom: 1px solid #222;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+
+    .nav-name {
+      font-size: 1.2em;
+      color: #57d5d9;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover {
+      color: #9ee2ff;
+    }
+
+    /* Current page highlight */
+    .navbar-link.current {
+      color: #ff8c42; /* highlighted color for current page */
+      font-weight: 700;
+    }
+
+    /* Sections */
+    .section {
+      padding-top: 40px;
+      padding-bottom: 60px;
+    }
+
+    .statement_text {
+      background-color: #161616;
+      color: #dcdcdc;
+      padding: 20px;
+      margin-top: 20px;
+      border-left: 3px solid #57d5d9;
+      max-width: 900px; /* widened from 700px */
+      line-height: 1.6;
+    }
+
+    /* Artist image */
+    .artist-image {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+    }
+
+    .artist-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    /* Side bubble columns */
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Navbar bubbles */
+    .navbar .bubble {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav_pad">  
+    <ul>
+      <li class="nav-name">Minh-khang Le</li>
+      <li><a class="navbar-link current" href="index.html">Home</a></li>
+      <li><a class="navbar-link" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Side Bubbles -->
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+  <!-- ARTIST STATEMENT -->
+  <div class="row section">
+    <div class="twelve columns">
+      <h5>Artist Statement</h5>
+
+      <!-- Artist Image -->
+      <img src="mission_blue_hold.jpg" class="artist-image cropped-img" alt="Mission Blue"/>
+
+      <!-- Statement Text -->
+      <div class="statement_text"> 
+        <em>
+
+Minh-khang Le is a concept artist for characters and environments based in San Jose, California. Growing up in the Bay Area, his work is influenced by the diverse culture and climate, shaping the worlds they create. Growing up, Minh experienced countless characters and settings through digital mediums, like animation and video games. This interest has evolved from crayon drawings, to animation, concept art, and interactive media, always keeping in mind your senses to create immersive environments.
+<p></p>
+Currently a Digital Media Art major at San Jose State University, Minh looks to explore different mediums to improve his art. In his classes he furthers his skills with Adobe apps, coding, and Blender.
+<p></p> 
+After becoming a recipient of the San Jose Downtown Doors 2024 award with his digital illustration (shown above), Minh works to contribute to the city's visual culture. His long term goal is to become an concept artist for games and shows, where he can bring characters and environments to life using technology, and visual design.
+ <p></p>
+        </em>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO SECTION -->
+  <div class="row section">
+    <div class="twelve columns">
+      <h5>Portfolio</h5>
+      <p>
+        Continue to the <a href="p1.html">Portfolio</a> to see my projects and exercises from ART 74 and ART 75.
+        <br><br>
+       
+      </p>
+    </div>
+  </div>
+<div class="statement_text"> 
+        <em>
+
+<p></p>
+<p></p> 
+ <p></p>Website coded by Minh-khang Le
+        </em>
+      </div>
+</div>
+
+<!-- Bubbles Script -->
+<script>
+window.addEventListener('load', () => {
+
+  // Navbar bubbles
+  const navbar = document.querySelector('.navbar');
+  for(let i=0; i<20; i++){
+    const b = document.createElement('span');
+    b.className = 'bubble';
+    b.style.left = Math.random()*100 + '%';
+    b.style.width = (6 + Math.random()*10) + 'px';
+    b.style.height = b.style.width;
+    b.style.animationDuration = (5 + Math.random()*6) + 's';
+    b.style.opacity = 0.4 + Math.random()*0.3;
+    navbar.appendChild(b);
+  }
+
+  // Side bubbles
+  function createSideBubbles(selector, count){
+    const col = document.querySelector(selector);
+    for(let i=0;i<count;i++){
+      const b = document.createElement('span');
+      b.className = 'bubble-column-bubble';
+      b.style.left = Math.random()*30 + 'px';
+      b.style.width = (6 + Math.random()*12) + 'px';
+      b.style.height = b.style.width;
+      b.style.animationDuration = (6 + Math.random()*10) + 's';
+      b.style.opacity = 0.3 + Math.random()*0.3;
+      b.style.animationDelay = Math.random()*10 + 's';
+      col.appendChild(b);
+    }
+  }
+
+  createSideBubbles('.bubble-column.left', 30);
+  createSideBubbles('.bubble-column.right', 30);
+
+});
+</script>
+
+</body>
+</html>
