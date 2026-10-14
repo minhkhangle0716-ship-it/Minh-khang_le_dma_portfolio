@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Audio - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #050316;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover {
+      color: #9ee2ff;
+    }
+
+    .navbar-link.current {
+      color: #ff8c42;
+      font-weight: 700;
+    }
+
+    /* Project container */
+    .project-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .project-title {
+      color: #57d5d9;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .project-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 6px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .project-description {
+      line-height: 1.8;
+      color: #e6e6e6;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* Top-left sticky back link */
+    .back-link-top-wrapper {
+      position: sticky;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .back-link-top {
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      background-color: rgba(0,0,0,0.2);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .back-link-top:hover {
+      color: #ff8c42;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Bottom back link */
+    .back-link-bottom {
+      display: block;
+      text-align: center;
+      margin: 40px auto;
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s;
+    }
+
+    .back-link-bottom:hover {
+      color: #ff8c42;
+    }
+
+    /* Side bubbles */
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Navbar bubbles */
+    .navbar .bubble {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Side Bubbles -->
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<!-- Top-left Sticky Back Link -->
+<div class="back-link-top-wrapper">
+  <a class="back-link-top" href="p1.html">Back to Portfolio</a>
+</div>
+
+<!-- PROJECT CONTENT -->
+<div class="project-container">
+  <h2 class="project-title">Audio Visual Project</h2>
+
+  <iframe class="project-image video-frame" width="560" height="315" src="https://www.youtube.com/embed/d1NwPZpndGA" title="Audio Visual video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <p class="project-description">
+In this project I wanted to pay tribute to my pet guinea pigs growing up. I used a combination of audio and visual elements to create a heartfelt and nostalgic experience. I used a combination of internet videos as well as my own footage of my guinea pigs. The project allowed me to experiment with different techniques in video editing and sound design. In this video I want to share my experience as a guinea pig owner, and was inspired by "day in the life of" videos that are popular on YouTube. I also wanted to create a video that would resonate with other pet owners and evoke feelings of love and caring for an animal. Overall, this project was a fun and rewarding experience that allowed me to express my personal story through audio and visual media.
+  </p>
+
+  <!-- <h3>Additional Images</h3>
+  <img src="Pattern-1-06.jpg" class="project-image">
+  <img src="Pattern-1-07.jpg" class="project-image"> -->
+
+  <!-- Bottom Back Link -->
+  <a class="back-link" href="p1.html">Back to Portfolio</a>
+</div>
+
+<!-- Bubble Script -->
+<script>
+window.addEventListener('load', () => {
+
+  // Navbar bubbles
+  const navbar = document.querySelector('.navbar');
+  for(let i=0; i<20; i++){
+    const b = document.createElement('span');
+    b.className = 'bubble';
+    b.style.left = Math.random()*100 + '%';
+    b.style.width = (6 + Math.random()*10) + 'px';
+    b.style.height = b.style.width;
+    b.style.animationDuration = (5 + Math.random()*6) + 's';
+    b.style.opacity = 0.4 + Math.random()*0.3;
+    navbar.appendChild(b);
+  }
+
+  // Side bubbles
+  function createSideBubbles(selector, count){
+    const col = document.querySelector(selector);
+    for(let i=0;i<count;i++){
+      const b = document.createElement('span');
+      b.className = 'bubble-column-bubble';
+      b.style.left = Math.random()*30 + 'px';
+      b.style.width = (6 + Math.random()*12) + 'px';
+      b.style.height = b.style.width;
+      b.style.animationDuration = (6 + Math.random()*10) + 's';
+      b.style.opacity = 0.3 + Math.random()*0.3;
+      b.style.animationDelay = Math.random()*10 + 's';
+      col.appendChild(b);
+    }
+  }
+
+  createSideBubbles('.bubble-column.left', 30);
+  createSideBubbles('.bubble-column.right', 30);
+
+  // âœ… FIXED back link
+  const backLink = document.getElementById('backLinkTop');
+  if(document.referrer.includes('p1.html') || document.referrer.includes('p2.html')){
+    backLink.href = document.referrer;
+  }
+
+});
+</script>
+
+</body>
+</html>
