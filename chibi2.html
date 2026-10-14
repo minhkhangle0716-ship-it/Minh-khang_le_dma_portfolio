@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Orchid Art - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #050316;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover {
+      color: #9ee2ff;
+    }
+
+    .navbar-link.current {
+      color: #ff8c42;
+      font-weight: 700;
+    }
+
+    .project-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .project-title {
+      color: #57d5d9;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .project-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 6px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .project-description {
+      line-height: 1.8;
+      color: #e6e6e6;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .back-link-top-wrapper {
+      position: sticky;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .back-link-top {
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      background-color: rgba(0,0,0,0.2);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .back-link-top:hover {
+      color: #ff8c42;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .back-link-bottom {
+      display: block;
+      text-align: center;
+      margin: 40px auto;
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s;
+    }
+
+    .back-link-bottom:hover {
+      color: #ff8c42;
+    }
+
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    .navbar .bubble {
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<div class="back-link-top-wrapper">
+  <a class="back-link-top" href="p1.html">Back to Portfolio</a>
+</div>
+
+<div class="project-container">
+  <h2 class="project-title">Orchid Art</h2>
+
+  <h3>Final Orchid</h3>
+  <img src="orchid2.png" class="project-image">
+  <p class="project-description">
+    In this model, I learned how to create unique shapes, curve, and bevel. I made a darker pale flower that looks like it would bloom at night.
+  </p>
+
+  <h3>Earlier Render</h3>
+  <img src="orchid1.png" class="project-image">
+  <p class="project-description">
+    I began by blocking out shapes and beveling shapes to form the pot. I followed a reference image but also changed a lot. In this project I also learned how to assign materials and colors to models. I made the flower a little shiny and wet looking so that it looks more unique.
+  </p>
+
+</div>
+
+<a class="back-link-bottom" href="p1.html">Back to Portfolio</a>
+
+<script>
+window.addEventListener('load', () => {
+  const navbar = document.querySelector('.navbar');
+  for(let i=0; i<20; i++){
+    const b = document.createElement('span');
+    b.className = 'bubble';
+    b.style.left = Math.random()*100 + '%';
+    b.style.width = (6 + Math.random()*10) + 'px';
+    b.style.height = b.style.width;
+    b.style.animationDuration = (5 + Math.random()*6) + 's';
+    b.style.opacity = 0.4 + Math.random()*0.3;
+    navbar.appendChild(b);
+  }
+
+  function createSideBubbles(selector, count){
+    const col = document.querySelector(selector);
+    for(let i=0;i<count;i++){
+      const b = document.createElement('span');
+      b.className = 'bubble-column-bubble';
+      b.style.left = Math.random()*30 + 'px';
+      b.style.width = (6 + Math.random()*12) + 'px';
+      b.style.height = b.style.width;
+      b.style.animationDuration = (6 + Math.random()*10) + 's';
+      b.style.opacity = 0.3 + Math.random()*0.3;
+      b.style.animationDelay = Math.random()*10 + 's';
+      col.appendChild(b);
+    }
+  }
+
+  createSideBubbles('.bubble-column.left', 30);
+  createSideBubbles('.bubble-column.right', 30);
+});
+</script>
+
+</body>
+</html>
