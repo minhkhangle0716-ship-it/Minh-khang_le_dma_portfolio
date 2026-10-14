@@ -8,6 +8,7 @@ let earthOverlay;
 let highOverlay;
 let lowOverlay;
 let titleOverlay;
+let anglerCanvas;
 
 function preload() {
   snd1 = loadSound("assets/mixkit-cartoon-toy-whistle-616.wav");
@@ -26,7 +27,15 @@ titleOverlay = loadImage("assets/a_title.png");
 }
 
 function setup() {
-  createCanvas(1100, 700);
+  anglerCanvas = createCanvas(1100, 700);
+  anglerCanvas.elt.tabIndex = 0;
+  anglerCanvas.elt.setAttribute("aria-label", "Alien Angler game. Use the arrow keys to control the fishing hook.");
+  anglerCanvas.elt.addEventListener("pointerdown", () => anglerCanvas.elt.focus({ preventScroll: true }));
+  window.addEventListener("keydown", event => {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
+      event.preventDefault();
+    }
+  }, { capture: true });
 
   mgr = new SceneManager();
 

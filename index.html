@@ -1,23 +1,37 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
-  <script src="../lib/p5.js"></script>
-  <script src="../lib/p5.sound.js"></script>
-  <script src="../lib/planck.min.js"></script>
-  <script src="../lib/p5play.js"></script>
-  <script src="../lib/scenemanager.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/addons/p5.sound.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play@2.3.0/lib/p5.play.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mveteanu/p5.SceneManager@master/lib/scenemanager.js"></script>
   <script src="https://unpkg.com/p5.fillgradient"></script>
-
   <script src="scenes.js"></script>
   <script src="sketch.js"></script>
-
   <style>
+    html,
     body {
-      padding: 50;
-      margin: 50;
-      background-color: #222;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #081c2c;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    canvas {
+      display: block;
+      width: 100vw;
+      height: auto;
+      max-width: 100vw;
+      max-height: 100vh;
     }
   </style>
 

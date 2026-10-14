@@ -382,10 +382,9 @@ text("Use buttons 1-4 to navigate pages or interact with clickable buttons", wid
     backBtn = checkButtonPress("Back", width / 2, 440, 140, 45,
       color(220, 150, 100), color(180), color(255));
 
-    if (backBtn) this.sceneManager.showScene(ML_home);
-
-    if (ghosty.mouse.pressing()) {
-      this.sceneManager.showScene(ML_main);
+    if (backBtn) {
+      this.sceneManager.showScene(ML_home);
+      return;
     }
   }
 }
