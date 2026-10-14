@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Underwater Timelapse - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: relative;
+      padding: 20px 0;
+      background-color: #050316;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      display: inline-block;
+      padding-right: 20px;
+      list-style: none;
+      font-weight: 600;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+    }
+
+    .navbar-link:hover { color: #ff8c42; }
+    .navbar-link.current { color: #ff8c42; font-weight: 700; }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 34px auto 20px;
+      padding: 0 20px;
+    }
+
+    .project-title {
+      margin-bottom: 16px;
+      color: #57d5d9;
+      text-align: center;
+    }
+
+    .project-description {
+      margin-bottom: 20px;
+      color: #e6e6e6;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .timelapse-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px auto;
+    }
+
+    .timelapse-controls button {
+      margin: 0;
+      border-color: #57d5d9;
+      color: #57d5d9;
+      background-color: #050316;
+    }
+
+    #timelapse-stage {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #050316;
+    }
+
+    #timelapse-stage canvas {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+    }
+
+    .back-link-bottom {
+      display: block;
+      margin: 30px auto 40px;
+      color: #57d5d9;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link-bottom:hover { color: #ff8c42; }
+
+    @media (max-width: 600px) {
+      .timelapse-controls { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="project-container">
+  <h2 class="project-title">Underwater Timelapse</h2>
+  <p class="project-description">
+    An animated underwater world unfolds through four environments, from the tropical surface to the abyss.
+  </p>
+  <div class="timelapse-controls" role="group" aria-label="Animation controls">
+    <button class="button" id="timelapse-toggle" type="button">Pause</button>
+    <button class="button" id="timelapse-restart" type="button">Restart</button>
+  </div>
+</div>
+
+<main id="timelapse-stage" aria-label="Interactive underwater animation"></main>
+
+<a class="back-link-bottom" href="project2_timelapse.html">Back to Project</a>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+<script src="../101%20code/project_2_final%20copy/sketch.js"></script>
+<script>
+window.addEventListener('load', () => {
+  const toggle = document.querySelector('#timelapse-toggle');
+  toggle.addEventListener('click', () => {
+    if (isLooping()) {
+      noLoop();
+      toggle.textContent = 'Resume';
+    } else {
+      loop();
+      toggle.textContent = 'Pause';
+    }
+  });
+
+  document.querySelector('#timelapse-restart').addEventListener('click', () => {
+    window.location.reload();
+  });
+});
+</script>
+
+</body>
+</html>

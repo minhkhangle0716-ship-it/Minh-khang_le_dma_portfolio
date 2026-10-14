@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Alien Angler - Minh-khang Le</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="icon" type="image/png" href="water_favicon.jpg">
+  <style>
+    body {
+      color: #e6e6e6;
+      background-color: #1a3238;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #050316;
+      padding: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+
+    .navbar-link {
+      color: #57d5d9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover { color: #9ee2ff; }
+    .navbar-link.current { color: #ff8c42; font-weight: 700; }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .project-title {
+      color: #57d5d9;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .project-container h3 { color: #57d5d9; }
+
+    .project-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 6px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .game-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 11 / 7;
+      margin: 20px auto;
+      border: 0;
+      border-radius: 6px;
+      background: #081c2c;
+    }
+
+    .project-description {
+      line-height: 1.8;
+      color: #e6e6e6;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .back-link-top-wrapper {
+      position: sticky;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+
+    .back-link-top {
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      background-color: rgba(0,0,0,0.2);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .back-link-top:hover { color: #ff8c42; background-color: rgba(0,0,0,0.4); }
+
+    .back-link-bottom {
+      display: block;
+      text-align: center;
+      margin: 40px auto;
+      color: #57d5d9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s;
+    }
+
+    .back-link-bottom:hover { color: #ff8c42; }
+
+    .bubble-column {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble-column.left { left: 0; }
+    .bubble-column.right { right: 0; }
+
+    .bubble-column-bubble,
+    .navbar .bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(94, 202, 230, 0.4);
+      border-radius: 50%;
+      animation-name: rise;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0; }
+      50% { opacity: 0.4; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <ul>
+      <li><a class="navbar-link" href="index.html">Home</a></li>
+      <li><a class="navbar-link current" href="p1.html">Portfolio</a></li>
+      <li><a class="navbar-link" href="p2.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="bubble-column left"></div>
+<div class="bubble-column right"></div>
+
+<div class="back-link-top-wrapper">
+  <a class="back-link-top" href="p1.html">Back to Portfolio</a>
+</div>
+
+<div class="project-container">
+  <h2 class="project-title">Alien Angler</h2>
+
+  <h3>Underwater Fishing Game</h3>
+  <iframe class="game-frame" src="../101%20code/proj4/index.html" title="Playable Alien Angler fishing game" allow="autoplay" loading="eager"></iframe>
+  <p class="project-description">
+    Alien Angler is a p5.js game where you catch the fish you want to showcase in your aquarium/ homescreen!
+  </p>
+<h3>Game Design</h3>
+  <img src="wireframe.png" class="project-image">
+  <p class="project-description">
+     This was my biggest coding project yet. Using the skills learned in Art 101, I wanted to make a minigame that also fit the ocean theme I was doing with my previous projects. I started by gathering reference and creating a wire frame, so that I knew how to code the game in sections. I hand made the backgrounds and title using Procreate. The unique gimic I included to make it different from other fishing games, is that the fish you catch will swim around on your home screen. There are also different biomes where unique effects happen to your rod and fish.
+  </p>
+  
+</div>
+
+<a class="back-link-bottom" href="p1.html">Back to Portfolio</a>
+
+<script>
+window.addEventListener('load', () => {
+  const navbar = document.querySelector('.navbar');
+  for (let i = 0; i < 20; i++) {
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+    bubble.style.left = Math.random() * 100 + '%';
+    bubble.style.width = (6 + Math.random() * 10) + 'px';
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDuration = (5 + Math.random() * 6) + 's';
+    bubble.style.opacity = 0.4 + Math.random() * 0.3;
+    navbar.appendChild(bubble);
+  }
+
+  for (const selector of ['.bubble-column.left', '.bubble-column.right']) {
+    const column = document.querySelector(selector);
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement('span');
+      bubble.className = 'bubble-column-bubble';
+      bubble.style.left = Math.random() * 30 + 'px';
+      bubble.style.width = (6 + Math.random() * 12) + 'px';
+      bubble.style.height = bubble.style.width;
+      bubble.style.animationDuration = (6 + Math.random() * 10) + 's';
+      bubble.style.opacity = 0.3 + Math.random() * 0.3;
+      bubble.style.animationDelay = Math.random() * 10 + 's';
+      column.appendChild(bubble);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
