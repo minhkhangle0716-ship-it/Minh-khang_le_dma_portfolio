@@ -1,0 +1,215 @@
+/* Cropped Artist Image */
+.cropped-img {
+  width: 100%;           /* fills container width */
+  max-width: 600px;      /* limits how big it gets */
+  height: 400px;         /* fixed height for cropping */
+  object-fit: cover;     /* crops top and bottom automatically */
+  object-position: center; /* focuses center of the image */
+  display: block;
+  margin: 20px 0;        /* spacing around image */
+  border-radius: 6px;    /* matches artist-image style */
+}
+
+/* Body & Base */
+
+body {
+  color: #e6e6e6;
+  background-color: #1a3238;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  overflow: hidden;
+  background-color: #050316;
+  border-bottom: 1px solid #222;
+  height: 70px;
+  z-index: 2;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar .nav-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Links */
+a:link, a:visited {
+  color: #57d5d9;
+  text-decoration: none;
+}
+
+a:hover { color: #9ee2ff; }
+a:active { color: #3292a8; }
+
+/* Sections */
+.section { padding-top: 40px; padding-bottom: 60px; }
+
+/* Artist Statement */
+.statement_text {
+  background-color: #161616;
+  color: #dcdcdc;
+  padding: 16px;
+  margin-top: 20px;
+  border-left: 3px solid #57d5d9;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* Navbar bubbles */
+.bubble {
+  position: absolute;
+  bottom: -10px;
+  background-color: rgba(94,213,217,0.5);
+  border-radius: 50%;
+  animation-name: rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  50% { transform: translateY(-35px) translateX(2px); }
+  100% { transform: translateY(-80px) translateX(-2px); opacity: 0; }
+}
+
+/* Side bubble columns */
+.bubble-column {
+  position: fixed;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubble-column.left { left: 0; }
+.bubble-column.right { right: 0; }
+
+.bubble-column-bubble {
+  position: absolute;
+  bottom: -10px;
+  background-color: rgba(94,213,217,0.5);
+  border-radius: 50%;
+  animation-name: rise-column;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rise-column {
+  0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  50% { transform: translateY(-200px) translateX(2px); }
+  100% { transform: translateY(-400px) translateX(-2px); opacity: 0; }
+}
+
+.footer-contact {
+  background-color: #050316;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  border-top: 1px solid #222;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-contact p {
+  margin: 8px 0;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.footer-contact a {
+  color: #57d5d9;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #9ee2ff;
+}
+/* Back to Portfolio button */
+.back-link {
+  display: block;
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 600;
+  color: #57d5d9; /* default */
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.back-link:hover {
+  color: #ff8c42 !important; /* force orange on hover */
+  transform: scale(1.05);
+}
+
+.back-link-top {
+  color: #57d5d9;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: rgba(0,0,0,0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.back-link-top:hover {
+  color: #ff8c42;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.back-link-top-wrapper {
+  position: sticky;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+}
+
+.back-link-top {
+  color: #57d5d9;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: rgba(0,0,0,0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.back-link-top:hover {
+  color: #ff8c42;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.logo-crop {
+  width: 100%;
+  max-width: 700px;
+  height: 390px; /* controls how much gets cropped */
+  object-fit: cover;
+  object-position: center; /* keeps center visible */
+  border-radius: 6px;
+  margin: 20px auto;
+  display: block;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
